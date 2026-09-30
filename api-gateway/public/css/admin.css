@@ -1,0 +1,206 @@
+:root {
+  --black: #0D0D10;
+  --panel: #17171b;
+  --panel-2: #1e1e23;
+  --blue: #0F3DFF;
+  --blue-light: #6a8bff;
+  --text: rgba(255,255,255,0.88);
+  --text-muted: rgba(255,255,255,0.55);
+  --line: rgba(255,255,255,0.1);
+  --radius: 0.9rem;
+  --danger: #e0554a;
+  --success: #3fa85c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: var(--black);
+  color: var(--text);
+}
+a { color: inherit; }
+
+/* ---------- Login ---------- */
+.login-wrap {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.login-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.login-card h1 {
+  font-size: 1.4rem;
+  margin: 0 0 0.3rem;
+}
+.login-card .brand-accent { color: var(--blue-light); }
+.login-card p.sub { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 1.6rem; }
+
+label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+input, select, textarea {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.6rem;
+  font-weight: 600;
+}
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  padding: 0.75rem 1.2rem;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #0c31d1; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 0.5rem 0.9rem;
+}
+.btn-outline:hover { border-color: var(--blue-light); }
+.btn-sm { padding: 0.35rem 0.7rem; font-size: 0.8rem; }
+.btn-danger { background: rgba(224,85,74,0.15); color: var(--danger); border: 1px solid rgba(224,85,74,0.4); }
+.btn-danger:hover { background: rgba(224,85,74,0.28); }
+
+.error-msg { color: var(--danger); font-size: 0.85rem; margin: -0.6rem 0 1rem; min-height: 1em; }
+
+/* ---------- Layout del panel ---------- */
+.app-shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 230px;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  padding: 1.5rem 1rem;
+  display: flex; flex-direction: column;
+  flex-shrink: 0;
+}
+.sidebar .brand { font-weight: 700; font-size: 1.1rem; padding: 0 0.5rem 1.5rem; }
+.sidebar .brand .brand-accent { color: var(--blue-light); }
+.sidebar nav { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+.sidebar nav button {
+  text-align: left;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.sidebar nav button:hover { background: var(--panel-2); color: var(--text); }
+.sidebar nav button.active { background: rgba(15,61,255,0.16); color: #fff; }
+.sidebar .user-box {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.sidebar .user-box .role-badge {
+  display: inline-block;
+  background: rgba(15,61,255,0.16);
+  color: var(--blue-light);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  margin-top: 0.3rem;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 2.4rem;
+  overflow-x: auto;
+}
+.main h2 { margin: 0 0 0.3rem; font-size: 1.5rem; }
+.main .section-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.6rem; }
+
+/* ---------- Dashboard cards ---------- */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.4rem;
+}
+.stat-card .num { font-size: 2rem; font-weight: 700; color: #fff; }
+.stat-card .label { color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem; }
+
+/* ---------- Toolbar / tabla ---------- */
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap; }
+.toolbar input[type="text"] { max-width: 260px; margin-bottom: 0; }
+
+.table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: auto;
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+thead th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+tbody td { padding: 0.7rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); white-space: nowrap; }
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+.badge { padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.76rem; }
+.badge-ok { background: rgba(63,168,92,0.16); color: var(--success); }
+.badge-warn { background: rgba(224,85,74,0.16); color: var(--danger); }
+.actions-cell { display: flex; gap: 0.4rem; }
+.empty-row td { text-align: center; color: var(--text-muted); padding: 2rem; }
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+.modal-box h3 { margin: 0 0 1.2rem; }
+.modal-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 0.5rem; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+.field-grid .full { grid-column: 1 / -1; }
+
+@media (max-width: 780px) {
+  .app-shell { flex-direction: column; }
+  .sidebar { width: 100%; flex-direction: row; align-items: center; overflow-x: auto; }
+  .sidebar nav { flex-direction: row; }
+  .sidebar .user-box { display: none; }
+  .main { padding: 1.2rem; }
+  .field-grid { grid-template-columns: 1fr; }
+}

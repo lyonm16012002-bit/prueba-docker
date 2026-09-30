@@ -1,0 +1,26 @@
+{
+  "name": "gym-microservicios",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sistema de gestión de gimnasio (entrenador personal) con arquitectura de microservicios en capas, API Gateway y autenticación JWT.",
+  "engines": { "node": ">=18" },
+  "workspaces": [
+    "api-gateway",
+    "ms-usuarios",
+    "ms-clientes",
+    "ms-membresias"
+  ],
+  "scripts": {
+    "start": "concurrently -n gateway,usuarios,clientes,membresias -c cyan,green,yellow,magenta \"npm start -w api-gateway\" \"npm start -w ms-usuarios\" \"npm start -w ms-clientes\" \"npm start -w ms-membresias\"",
+    "dev": "concurrently -n gateway,usuarios,clientes,membresias -c cyan,green,yellow,magenta \"npm run dev -w api-gateway\" \"npm run dev -w ms-usuarios\" \"npm run dev -w ms-clientes\" \"npm run dev -w ms-membresias\"",
+    "probar:jwt": "node scripts/probar-jwt.js",
+    "demo:datos": "node scripts/datos-demo.js",
+    "migrar": "node scripts/migrar-datos.js"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^11.3.0",
+    "concurrently": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

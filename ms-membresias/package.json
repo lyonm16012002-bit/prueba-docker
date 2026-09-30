@@ -1,0 +1,17 @@
+{
+  "name": "ms-membresias",
+  "version": "1.0.0",
+  "description": "Microservicio de membresías: pagos de planes y asistencia al gimnasio.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
